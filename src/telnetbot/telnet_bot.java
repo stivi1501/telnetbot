@@ -14,10 +14,10 @@ public class telnet_bot {
  
 
 
-	public telnet_bot(String server, String user, String password, String lo, String pa) {
+	public telnet_bot(String server,int portt, String user, String password, String lo, String pa) {
         try 
         {
-            telnet.connect(server, 23);
+            telnet.connect(server, portt);
             in = telnet.getInputStream();
             out = new PrintStream(telnet.getOutputStream());
             readFroServerUntil(lo);

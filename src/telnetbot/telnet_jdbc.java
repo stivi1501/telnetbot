@@ -12,8 +12,11 @@ public class telnet_jdbc {
 	static String pasww="";
 	static String hostt="localhost";
 
-	public static void jdbc() 
+	public static telnet_plans jdbc() 
 	{
+		
+	telnet_plans lis = null;
+		
 	String r1 = "";
 	String r2 = "";
 	String r3 = "";
@@ -21,7 +24,7 @@ public class telnet_jdbc {
 	String polaczenieURL = "jdbc:mysql://"+hostt+"/CERBER?user="+loginn+"&password="+pasww;
 	//String query = "Select ip,nn,time_cmd,type FROM cerber_plan_temp where id="+ii+" limit 1"; 
 	//Select ip,nn,time_cmd,type FROM cerber_plan_temp t1,cerber_plan_lp t2 where id=70-min_lp AND t1.lp=t2.lp limit 1
-	String query = "Select 1 x"; 
+	String query = "SELECT device FROM `telnetbot`.`telnet_device`"; 
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
@@ -31,6 +34,7 @@ public class telnet_jdbc {
 	      while (rs.next()) 
 	          {
 	    	  r1=rs.getString(1);
+	    	  lis.lista.add(new telnet_plan(r1,23));
 	    	 // r2=rs.getString(2);
 	    	 // r3=rs.getString(3);
 	    	 // r4=rs.getString(4);	
@@ -44,5 +48,7 @@ public class telnet_jdbc {
 		                         System.out.println("SQLState: "     + wyjatek.getSQLState());
 		                         System.out.println("VendorError: "  + wyjatek.getErrorCode());
 		                        }
+	
+	return lis;
 } 
 }
