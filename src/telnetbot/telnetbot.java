@@ -11,7 +11,9 @@ public class telnetbot {
     Thread[]   threads = new   Thread[maks];
     
 int i=0;
+telnet_jdbc.jdbc();
 
+/*
   //  for(int i=0; i<=maks; i++) 
      {
 
@@ -22,6 +24,7 @@ int i=0;
     {threads[i] = new Thread(runners[i]);}
     //for(int i=0; i<maks; i++) 
     {threads[i].start();}
-    };
 
+*/
+    }
 }    
