@@ -18,13 +18,14 @@ public class telnet_jdbc {
 	telnet_plans lis = null;
 		
 	String r1 = "";
-	String r2 = "";
+	int r2 = 0;
 	String r3 = "";
-	String r4 = "";		
+	String r4 = "";
+	String r5 = "";
+	String r6 = "";
+	
 	String polaczenieURL = "jdbc:mysql://"+hostt+"/CERBER?user="+loginn+"&password="+pasww;
-	//String query = "Select ip,nn,time_cmd,type FROM cerber_plan_temp where id="+ii+" limit 1"; 
-	//Select ip,nn,time_cmd,type FROM cerber_plan_temp t1,cerber_plan_lp t2 where id=70-min_lp AND t1.lp=t2.lp limit 1
-	String query = "SELECT device FROM `telnetbot`.`telnet_device`"; 
+	String query = "SELECT  device,socket,user,pass,lo,pa FROM `telnetbot`.`telnet_device`"; 
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
@@ -34,11 +35,14 @@ public class telnet_jdbc {
 	      while (rs.next()) 
 	          {
 	    	  r1=rs.getString(1);
-	    	  lis.lista.add(new telnet_plan(r1,23));
-	    	 // r2=rs.getString(2);
-	    	 // r3=rs.getString(3);
-	    	 // r4=rs.getString(4);	
-	    	  System.out.println(" " + r1);
+	    	  r2=rs.getInt(2);
+		      r3=rs.getString(3);
+		      r4=rs.getString(4);	
+		      r5=rs.getString(5);	
+		      r6=rs.getString(6);	
+	    	  
+	    	  lis.lista.add(new telnet_plan(r1,r2,r3,r4,r5,r6));
+	    	  //System.out.println(" " + r1+"-"+ r2+"-"+ r3+"-"+ r4+"-"+ r5+"-"+ r6);
 	    	  }
 	     conn.close();
 	}
