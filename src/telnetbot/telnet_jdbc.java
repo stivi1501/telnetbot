@@ -26,7 +26,7 @@ public class telnet_jdbc {
 	String r7 = "";
 	
 	String polaczenieURL = "jdbc:mysql://"+hostt+"/CERBER?user="+loginn+"&password="+pasww;
-	String query = "SELECT  device,socket,user,pass,lo,pa,cmd FROM `telnetbot`.`telnet_device`"; 
+	String query = "SELECT  device,socket,user,pass,lo,pa,cmd_id FROM `telnetbot`.`telnet_device`"; 
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
