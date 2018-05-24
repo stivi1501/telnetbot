@@ -6,8 +6,8 @@ public class telnetbot_thread extends telnet_bot  implements Runnable{
 
 
 
-public telnetbot_thread(String server,int port, String user, String password, String lo, String pa) {
-		super(server,port, user, password, lo, pa);
+public telnetbot_thread(String server,int port, String user, String password, String lo, String pa,String cmd) {
+		super(server,port, user, password, lo, pa,cmd);
 		// TODO Auto-generated constructor stub
 	}
 

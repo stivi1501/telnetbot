@@ -14,7 +14,7 @@ public class telnet_bot {
  
 
 
-	public telnet_bot(String server,int portt, String user, String password, String lo, String pa) {
+	public telnet_bot(String server,int portt, String user, String password, String lo,String pa,String cmd) {
         try 
         {
             telnet.connect(server, portt);

@@ -8,9 +8,10 @@ public class telnet_plan {
 	public String pass="";
 	public String lo="";
 	public String pa="";
+	public String cmd="";
 
 	
-	telnet_plan(String devi,int por,String user,String pass,String lo,String pa)
+	telnet_plan(String devi,int por,String user,String pass,String lo,String pa,String cmd)
 	{
 		this.device=devi;
 		this.port=por;
@@ -18,5 +19,6 @@ public class telnet_plan {
 		this.pass=pass;
 		this.lo=lo;
 		this.pa=pa;
+		this.cmd=cmd;
 	}
 }

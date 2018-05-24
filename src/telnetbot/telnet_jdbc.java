@@ -23,9 +23,10 @@ public class telnet_jdbc {
 	String r4 = "";
 	String r5 = "";
 	String r6 = "";
+	String r7 = "";
 	
 	String polaczenieURL = "jdbc:mysql://"+hostt+"/CERBER?user="+loginn+"&password="+pasww;
-	String query = "SELECT  device,socket,user,pass,lo,pa FROM `telnetbot`.`telnet_device`"; 
+	String query = "SELECT  device,socket,user,pass,lo,pa,cmd FROM `telnetbot`.`telnet_device`"; 
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
@@ -39,9 +40,11 @@ public class telnet_jdbc {
 		      r3=rs.getString(3);
 		      r4=rs.getString(4);	
 		      r5=rs.getString(5);	
-		      r6=rs.getString(6);	
+		      r6=rs.getString(6);
+		      r7=rs.getString(7);	
+		      
 	    	  
-	    	  lis.lista.add(new telnet_plan(r1,r2,r3,r4,r5,r6));
+	    	  lis.lista.add(new telnet_plan(r1,r2,r3,r4,r5,r6,r7));
 	    	  //System.out.println(" " + r1+"-"+ r2+"-"+ r3+"-"+ r4+"-"+ r5+"-"+ r6);
 	    	  }
 	     conn.close();
