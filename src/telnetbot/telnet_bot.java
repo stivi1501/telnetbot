@@ -11,10 +11,27 @@ public class telnet_bot {
     private InputStream in;
     private PrintStream out;
     private String prompt = "$";
+    
+	public String device="";
+	public int port=0;
+	public String user="";
+	public String pass="";
+	public String lo="";
+	public String pa="";
+	public String cmd="";
+
  
 
 
-	public telnet_bot(String server,int portt, String user, String password, String lo,String pa,String cmd) {
+	public telnet_bot(String server,int portt, String user, String password, String lo,String pa) {
+		System.out.println("Nawi¹zanie po³¹czenia do serwera  "+server+":"+portt);	
+		device=server;
+		port=portt;
+
+
+		
+		
+		/*
         try 
         {
             telnet.connect(server, portt);
@@ -26,8 +43,9 @@ public class telnet_bot {
             writeToServer(password);
             readFroServerUntil(prompt + " ");
         } catch (Exception e) {e.printStackTrace();}
+        */
     }
- 
+
     public void su(String password) {
         try {
         	writeToServer("sudo su");
