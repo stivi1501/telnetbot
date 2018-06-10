@@ -13,19 +13,18 @@ public telnetbot_thread(String server,int port, String user, String password, St
 
 @Override
 public void run() {
+	
+	
+	for (int ll=0;ll<cmds.size();ll++) {
+		//System.out.println(ll);
+		//System.out.println("============================================================================");
+		//System.out.println(device+":"+port+">>"+cmds.get(ll).type+'|'+cmds.get(ll).arg1);
+		//System.out.println("============================================================================");
+		if (cmds.get(ll).type.equals("wait")){try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();};};
+		if (cmds.get(ll).type.equals("su")){su(cmds.get(ll).arg1);};
+		if (cmds.get(ll).type.equals("cmd")){sendCommand2(sendCommand2("shutdown -h now"));};
+	};
 
-	for (int ll=1;ll<cmds.size();ll++) {System.out.println(device+":"+port+">>"+cmds.get(ll).type+' '+cmds.get(ll).arg1);};
 
-/*
-	try {
-    try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();};
-    su("guide");
-    try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}; try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();};
-    sendCommand2("shutdown -h now");
-    try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();};
-    disconnect();
-    try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();};
-    } catch (Exception e) {e.printStackTrace();}
-    */
 }
 }    

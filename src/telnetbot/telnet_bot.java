@@ -24,14 +24,14 @@ public class telnet_bot {
 
 
 	public telnet_bot(String server,int portt, String user, String password, String lo,String pa) {
-		System.out.println("Nawi¹zanie po³¹czenia do serwera  "+server+":"+portt);	
+		//System.out.println("Nawi¹zanie po³¹czenia do serwera  "+server+":"+portt);	
 		device=server;
 		port=portt;
 
 
 		
 		
-		/*
+		
         try 
         {
             telnet.connect(server, portt);
@@ -43,7 +43,7 @@ public class telnet_bot {
             writeToServer(password);
             readFroServerUntil(prompt + " ");
         } catch (Exception e) {e.printStackTrace();}
-        */
+        
     }
 
     public void su(String password) {
@@ -77,7 +77,6 @@ public class telnet_bot {
         try {
             out.println(value);
             out.flush();
-            System.out.println(value);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -23,7 +23,6 @@ public class telnet_jdbc {
 	String polaczenieURL = "jdbc:mysql://"+hostt+"/telnetbot?user="+loginn+"&password="+pasww;
 	String query = "SELECT cmd_id,lp,type,arg1 FROM telnet_cmd ORDER BY lp;"; 
 	Connection conn = null;        
-	System.out.println(query);
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
 	      Class.forName("com.mysql.jdbc.Driver");
@@ -66,7 +65,7 @@ public class telnet_jdbc {
 	String r7 = "";
 	
 	String polaczenieURL = "jdbc:mysql://"+hostt+"/telnetbot?user="+loginn+"&password="+pasww;
-	String query = "SELECT  device,socket,user,pass,lo,pa,cmd_id FROM `telnetbot`.`telnet_device`"; 
+	String query = "SELECT  device,socket,user,pass,lo,pa,cmd_id FROM `telnetbot`.`telnet_device` ORDER BY cmd_id,lp"; 
 	Connection conn = null;           
 	try {
 	     conn = DriverManager.getConnection(polaczenieURL);
